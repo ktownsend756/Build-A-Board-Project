@@ -1,0 +1,1 @@
+This project is meant for people to put together their very own skateboard, choosing from a selection of Decks, Trucks, Wheels, Bearings, and Griptapes. There are also other activites people can do such as play a game of S.K.A.T.E against a computer (Not yet implemented), or view a library of real life skate tricks.
