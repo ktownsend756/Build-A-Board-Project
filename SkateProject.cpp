@@ -1,5 +1,6 @@
 #include <iostream>
 #include <list>
+#include <stack>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -81,6 +82,10 @@ class DeckHashTable{
                     {"Primitive_Akatsuki", Deck("Primitive_Akatsuki", "Primitive", "Akatsuki", "8.3")},
                     {"Primitive_Gohan", Deck("Primitive_Gohan", "Primitive", "Gohan", "8.125")},
                     {"Primitive_Goku", Deck("Primitive_Goku", "Primitive", "Goku", "8.25")},
+                    //DGK
+                    {"DGK_SourPatch", Deck("DGK_SourPatch", "DGK", "SourPatch", "7.75")},
+                    {"DGK_Overlord", Deck("DGK_Overlord", "DGK", "Overlord", "8.0")},
+                    {"DGK_Billions", Deck("DGK_Billions", "DGK", "Billions", "8.25")}
                 };
 
             }
@@ -90,11 +95,12 @@ class DeckHashTable{
             }
             
             void display(){
-                cout << "Deck Inventory: " << endl;
+                cout << "Deck Inventory: " << "\n\n";
                 for(const auto& [key, deck] : deckMap){
                     cout << "Deck key: " << key << endl;
                     cout << "Info: " << deck.getBrand() << ", " << deck.getName() << ", " << deck.getSize() << "\n\n";
                 }
+                cout << "Deck Inventory Link: file:///Users/kevintownsend/SkateWebsite/Deck_Inventory.html" << endl;
             }
 
             void displayBrands(){
@@ -250,11 +256,12 @@ class TrucksHashTable{
             }
 
             void display(){
-                cout << "Trucks Inventory: " << endl;
+                cout << "Trucks Inventory: " << "\n\n";
                 for(const auto& [key, trucks] : trucksMap){
                     cout << "Trucks key: " << key << endl;
                     cout << "Info: " << trucks.getBrand() << ", " << trucks.getName() << ", " << trucks.getSize() << "\n\n";
                 }
+                cout << "Trucks Inventory Link: file:///Users/kevintownsend/SkateWebsite/Trucks_Inventory.html" << endl;
             }
 
             void displayBrands(){
@@ -410,11 +417,12 @@ class WheelsHashTable{
             }
             
             void display(){
-                cout << "Wheels Inventory: " << endl;
+                cout << "Wheels Inventory: " << "\n\n";
                 for(const auto& [key, wheels] : wheelsMap){
                     cout << "Wheels key: " << key << endl;
                     cout << "Info: " << wheels.getBrand() << ", " << wheels.getName() << ", " << wheels.getSize() << "\n\n";
                 }
+                cout << "Wheels Inventory Link: file:///Users/kevintownsend/SkateWebsite/Wheels_Inventory.html" << endl;
             }
 
             void displayBrands(){
@@ -543,7 +551,7 @@ class BearingsHashTable{
         }
 
         void display(){
-            cout << "Bearings Inventory:" << "\n\n";
+            cout << "Bearings Inventory: file:///Users/kevintownsend/SkateWebsite/Bearings_Inventory.html" << "\n\n";
             for(const auto&[key, bearings] : bearingsMap){
                 cout << "Key: " << key << ", ";
                 cout << "Info: " << bearings.getName() << "\n\n";
@@ -603,7 +611,7 @@ class GriptapeHashTable{
         }
 
         void display(){
-            cout << "Griptape Inventory:" << "\n\n";
+            cout << "Griptape Inventory: file:///Users/kevintownsend/SkateWebsite/Griptape_Inventory.html" << "\n\n";
             for(const auto&[key, griptape] : griptapeMap){
                 cout << "Key: " << key << ", ";
                 cout << "Info: " << griptape.getName() << "\n\n";
@@ -1113,15 +1121,77 @@ class Board{
             cout << "Bearings: " << bearings.getName() << endl;
             cout << "Griptape: " << griptape.getName() << endl;
         }
-        
+
+        void info(){
+            cout << "Deck: " << deck.getBrand() << ", " << deck.getName() << ", " << deck.getSize() << endl;
+            cout << "Trucks: " << trucks.getBrand() << ", " << trucks.getName() << ", " << trucks.getSize() << endl;
+            cout << "Wheels: " << wheels.getBrand() << ", " << wheels.getName() << ", " << wheels.getSize() << endl;
+            cout << "Bearings: " << bearings.getName() << endl;
+            cout << "Griptape: " << griptape.getName() << endl;
+        }    
 };
 
 
 int main(){
-    Board board;
-
-    board.build();
-    board.display();
+    stack<Board> boardHistory;
     
+    cout << "Welcome to Build-A-Board" << endl;
+    cout << "- - - - - - - - - - - - -" << endl;
+    while(true){
+        cout << "Main Menu" << endl;
+        cout << "1. Build a Skateboard" << endl;
+        cout << "2. Recent Builds" << "\n\n";
+        cout << "Insert Key: ";
+        int num;
+        cin >> num;
+        cout << "\n";
+
+        if(num == 1){
+            Board board;
+            board.build();
+            boardHistory.push(board);
+            board.display();
+            cout << "\n";
+            cout << "1 - Return to Main Menu" << endl;
+            cout << "2 - End session " << endl;
+            cout << "Insert Key: ";
+            int input;
+            cin >> input;
+            cout << "\n";
+            if(input == 1){
+                continue;
+            }
+            else{
+                cout << "See you next time!" << endl;
+                break;
+            }   
+        }
+        else if(num == 2){
+            int input;
+            while(input != 2){
+                if(boardHistory.empty()){
+                    cout << "No previous builds" << endl;
+                    cout << "Returning to Main Menu" << "\n\n";
+                    break;
+                }
+                else{
+                    cout << "Previous Build: " << endl;
+                    boardHistory.top().info();
+                    cout << "\n"; 
+                    cout << "1 - Remove this build and view another" << endl;
+                    cout << "2 - Return to Main Menu" << endl;
+                    cout << "Insert Key: ";
+                    cin >> input;
+                    cout << "\n";
+                    if(input == 1){
+                        boardHistory.pop();
+                    }
+                    else{
+                        break;
+                    }
+                }   
+            }
+        }
+    }
     return 0;
 }
