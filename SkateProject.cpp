@@ -233,11 +233,15 @@ class TrucksHashTable{
             TrucksHashTable(){
                 //Fill Hashtable
                 trucksMap = {
-                    {"Independent_Classic", Trucks("Independent_Classic", "Independent", "Classic", "149")},
-                    {"Independent_Hollow", Trucks("Independent_Hollow", "Independent", "Hollow", "150")},
-                    {"Thunder_Classic", Trucks("Thunder_Classic", "Thunder", "Classic", "149")},
-                    {"Thunder_Hollow", Trucks("Thunder_Hollow", "Thunder", "Hollow", "151")},
-                    {"Venture_Storm", Trucks("Venture_Storm", "Venture", "Storm", "151")}
+                    {"Independent_BlackStandard", Trucks("Independent_BlackStandard", "Independent", "Black Standard", "144")},
+                    {"Independent_BTG", Trucks("Independent_BTG", "Independent", "BTG", "139")},
+                    {"Independent_HollowChain", Trucks("Independent_HollowChain", "Independent", "Hollow Chain", "149")},
+                    {"Thunder_Cromer", Trucks("Thunder_Cromer", "Thunder", "Brad Cromer", "149")},
+                    {"Thunder_Medieval", Trucks("Thunder_Medieval", "Thunder", "Medieval", "148")},
+                    {"Thunder_Silvas", Trucks("Thunder_Silvas", "Thunder", "Miles Silvas", "144")},
+                    {"Venture_Koston", Trucks("Venture_Koston", "Venture", "Eric Koston", "149")},
+                    {"Venture_Gipson", Trucks("Venture_Gipson", "Venture", "Troy Gipson", "139")},
+                    {"Venture_Paid", Trucks("Venture_Paid", "Venture", "Paid V-Hollow", "148")}
                 };
             }
             
@@ -266,9 +270,10 @@ class TrucksHashTable{
             }
 
             void displaySizes(){
+                cout << "139" << endl;
+                cout << "144" << endl;
+                cout << "148" << endl;
                 cout << "149" << endl;
-                cout << "150" << endl;
-                cout << "151" << endl;
                 cout << "\n";
             }
 
@@ -384,11 +389,19 @@ class WheelsHashTable{
             WheelsHashTable(){
                 //Fill Hashtable
                 wheelsMap = {
-                    {"Spitfire_Gold", Wheels("Spitfire_Gold", "Spitfire", "Gold spiral", "52")},
-                    {"Spitfire_Red", Wheels("Spitfire_Red", "Spitfire", "Red spiral", "53")},
-                    {"Pig_Black", Wheels("Pig_Black", "Pig", "Black", "52")},
-                    {"Pig_Chalk", Wheels("Pig_Chalk", "Pig", "Chalk", "53")},
-                    {"OJ_Juice", Wheels("OJ_Juice", "OJ", "Juice", "55")}
+                    {"Spitfire_Classic", Wheels("Spitfire_Classic", "Spitfire", "Green Classic", "52")},
+                    {"Spitfire_Fade", Wheels("Spitfire_Fade", "Spitfire", "Fade", "58")},
+                    {"Spitfire_Burners", Wheels("Spitfire_Burners", "Spitfire", "Burners", "55")},
+                    {"Spitfire_Grimple", Wheels("Spitfire_Grimple", "Spitfire", "Grimplehead", "54")},
+                    {"Pig_Classic", Wheels("Pig_Classic", "Pig", "Blue Classic", "53")},
+                    {"Pig_Lewis", Wheels("Pig_Lewis", "Pig", "Julian Lewis", "55")},
+                    {"Pig_Combo", Wheels("Pig_Combo", "Pig", "Combo", "54")},
+                    {"Bones_STF", Wheels("Bones_STF", "Bones", "Easy Streets", "52")},
+                    {"Bones_100s", Wheels("Bones_100s", "Bones", "100s", "54")},
+                    {"Bones_P-Rod", Wheels("Bones_P-Rod", "Bones", "P-Rod", "52")},
+                    {"OJ_DoubleDuros", Wheels("OJ_DoubleDuros", "OJ", "Double Duros", "58")},
+                    {"OJ_Concentrate", Wheels("OJ_Concentrate", "OJ", "From Concentrate", "53")},
+                    {"OJ_Koi", Wheels("OJ_Koi", "OJ", "Dressen Koi", "56")}
                 };
             }
 
@@ -419,7 +432,10 @@ class WheelsHashTable{
             void displaySizes(){
                 cout << "52" << endl;
                 cout << "53" << endl;
+                cout << "54" << endl;
                 cout << "55" << endl;
+                cout << "56" << endl;
+                cout << "58" << endl;
                 cout << "\n";
             }
 
@@ -515,8 +531,8 @@ class BearingsHashTable{
         BearingsHashTable(){
             //Fill HashTable
             bearingsMap = {
-                {"Bones_REDZ", Bearings("Bones REDZ")},
-                {"Bones_Swiss", Bearings("Bones swiss")},
+                {"Bones_Reds", Bearings("Bones REDS")},
+                {"Bones_Swiss", Bearings("Bones Swiss")},
                 {"ShakeJunt", Bearings("Shake Junt")},
                 {"DGK", Bearings("DGK")}
             };
